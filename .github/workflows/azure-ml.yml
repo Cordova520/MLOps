@@ -21,3 +21,13 @@ jobs:
 
       - name: Verify Azure connection
         run: az account show --output table
+      - name: Install Azure ML extension
+        run: az extension add --name ml --yes
+      
+      - name: Verify Azure ML Workspace
+        run: az ml workspace show \
+            --name "${{ vars.AZURE_ML_WORKSPACE }}" \
+            --resource-group "${{ vars.AZURE_RESOURCE_GROUP }}" \
+            --output table
+
+      
