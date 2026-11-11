@@ -5,6 +5,8 @@
 # Python virtual environments
 .venv/
 venv/
+.venv-azure/
+venv-azure/
 
 # Python cache
 __pycache__/
