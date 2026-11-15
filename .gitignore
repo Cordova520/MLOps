@@ -14,3 +14,6 @@ __pycache__/
 
 # VS Code configuration
 .vscode/
+
+# Ignore ONNX models
+*.onnx
