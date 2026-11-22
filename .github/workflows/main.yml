@@ -33,16 +33,18 @@ jobs:
         run: |
           test -f DevOpsDataOps/e2e_demo_app/app.py
           test -f DevOpsDataOps/e2e_demo_app/requirements.txt
-
+      - name: Verify Hugging Face authentication
+        env:
+          HF_TOKEN: ${{ secrets.HG }}
+        run: |
+          hf auth whoami
+      
       - name: Deploy to Hugging Face
         env:
-          HF_TOKEN: ${{ secrets.HF }}
+          HF_TOKEN: ${{ secrets.HG }}
         run: |
           hf upload Cordova520/demo2 \
             DevOpsDataOps/e2e_demo_app \
             . \
             --repo-type space \
-            --exclude ".git/*" \
-            --exclude "__pycache__/*" \
-            --exclude ".venv/*" \
             --commit-message "Deploy from GitHub Actions"
