@@ -1,3 +1,0 @@
-[submodule "DevOpsDataOps/e2e_demo_app"]
-	path = DevOpsDataOps/e2e_demo_app
-	url = https://huggingface.co/spaces/Cordova520/demo2
